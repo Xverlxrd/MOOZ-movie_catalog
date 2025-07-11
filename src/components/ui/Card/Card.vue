@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import NoImg from '@assets/noImg.png'
-import type { Movie } from '@types/movie';
+import type {Movie} from "@/types/movie.d.ts";
 import {computed, ref} from "vue";
 
 const props = defineProps({

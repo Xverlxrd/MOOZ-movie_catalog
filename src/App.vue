@@ -27,16 +27,17 @@ import Header from "@components/Header/Header.vue";
 import Search from "@components/Search/Search.vue";
 import Catalog from "@components/Catalog/Catalog.vue";
 import { ref, computed, watch } from "vue";
-import type { Movie } from "@/types.d.ts";
 import Pagination from "@components/ui/Pagination/Pagination.vue";
 import Loader from "@components/ui/Loader/Loader.vue";
+import type {Movie} from "@/types/movie.d.ts";
 
 const searchQuery = ref('');
 const isLoading = ref(false);
 const movies = ref<Movie[]>([]);
 const currentPage = ref(1);
 const totalResults = ref(0);
-const apiKey = '8523cbb8'; // Вынесите в .env файл
+const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+
 
 const totalPages = computed(() => Math.ceil(totalResults.value / 10));
 

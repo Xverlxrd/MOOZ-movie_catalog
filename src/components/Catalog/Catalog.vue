@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import Card from "@components/ui/Card/Card.vue";
-import type {Movie} from "@/types.d.ts";
+import type {Movie} from "@/types/movie.d.ts";
 import type {PropType} from "vue";
 
 defineProps({
