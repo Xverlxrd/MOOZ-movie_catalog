@@ -9,22 +9,15 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
 import Card from "@components/ui/Card/Card.vue";
-import type {Movie} from "@types";
-
-const movies = ref<Movie[]>([]);
-
-const fetchApi = async () => {
-  const response = await fetch('https://www.omdbapi.com/?i=tt3896198&apikey=8523cbb8&s=Batman&page=2');
-  const data = await response.json();
-  movies.value = data.Search;
-}
-
-onMounted(() => {
-  fetchApi();
+import type {Movie} from "@/types.d.ts";
+import type {PropType} from "vue";
+defineProps({
+  movies: {
+    type: Array as PropType<Movie[]>,
+    required: true
+  }
 })
-
 </script>
 
 <style scoped>
