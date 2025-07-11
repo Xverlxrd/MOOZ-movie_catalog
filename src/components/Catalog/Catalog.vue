@@ -12,6 +12,7 @@
 import Card from "@components/ui/Card/Card.vue";
 import type {Movie} from "@/types.d.ts";
 import type {PropType} from "vue";
+
 defineProps({
   movies: {
     type: Array as PropType<Movie[]>,

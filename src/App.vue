@@ -2,10 +2,14 @@
   <div class="wrapper">
     <Header @inputWithDebounce="handleSearchInput"/>
     <Search v-show="searchQuery" :query="searchQuery"/>
+
+    <Loader v-if="isLoading"/>
+
+
     <Catalog
         v-if="movies.length"
         :movies="movies"
-        :loading="isLoading"/>
+    />
     <h1 v-else>
       Not found
     </h1>
@@ -25,6 +29,7 @@ import Catalog from "@components/Catalog/Catalog.vue";
 import { ref, computed, watch } from "vue";
 import type { Movie } from "@/types.d.ts";
 import Pagination from "@components/ui/Pagination/Pagination.vue";
+import Loader from "@components/ui/Loader/Loader.vue";
 
 const searchQuery = ref('');
 const isLoading = ref(false);
