@@ -27,4 +27,9 @@ defineProps({
   gap: 45px;
   padding-bottom: 84px;
 }
+@media (max-width: 1424px) {
+  .catalog {
+    justify-content: center;
+  }
+}
 </style>

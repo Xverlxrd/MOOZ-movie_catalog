@@ -1,10 +1,12 @@
 <template>
   <header class="header">
-    <img src="@assets/Logo.jpg" alt="Logo">
-    <Input
-      v-model="searchTerm"
-      @input="handleInputWithDebounce"
-    />
+    <img class="header_logo" src="@assets/Logo.jpg" alt="Logo">
+    <div class="header_input">
+      <Input
+          v-model="searchTerm"
+          @input="handleInputWithDebounce"
+      />
+    </div>
     <div class="header_user">
       <img
           src="@assets/User.png"
@@ -50,13 +52,28 @@ onBeforeUnmount(() => {
     align-items: center;
     gap: 9px;
 
-    &_img {
-
-    }
     &_name {
       font-weight: 400;
       font-size: 14px;
       line-height: 140%;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+
+    &_input {
+      order: 3;
+    }
+    &_user {
+      order: 2;
+    }
+    &_logo {
+      order: 1;
+      align-self: start;
     }
   }
 }
